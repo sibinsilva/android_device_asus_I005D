@@ -56,5 +56,8 @@ PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
 # Default device path for tree
 DEVICE_PATH := device/$(PRODUCT_BRAND)/$(PRODUCT_DEVICE)
 
+# Inherit OrangeFox-specific variables (VAB, dynamic partitions, display, etc.)
+$(call inherit-product-if-exists, $(DEVICE_PATH)/fox_$(PRODUCT_RELEASE_NAME).mk)
+
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, $(DEVICE_PATH)/device-$(PRODUCT_DEVICE).mk)
