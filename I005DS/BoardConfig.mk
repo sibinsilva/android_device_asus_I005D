@@ -27,6 +27,7 @@
 -include $(DEVICE_PATH)/BoardConfigCommon.mk
 
 # TWRP device-specific build flags
+TARGET_OTA_ASSERT_DEVICE := I005DS,ASUS_I005DS,I005DS_1,I005DA_1
 TW_HAPTICS_TSPDRV := true
 TW_MAX_BRIGHTNESS := 1023
 TW_NO_SCREEN_BLANK := true
