@@ -57,7 +57,7 @@ PRODUCT_MANUFACTURER := asus
 DEVICE_PATH := device/$(PRODUCT_BRAND)/$(PRODUCT_DEVICE)
 
 # Inherit OrangeFox-specific variables (VAB, dynamic partitions, display, etc.)
-$(call inherit-product-if-exists, $(DEVICE_PATH)/fox_$(PRODUCT_RELEASE_NAME).mk)
+$(call inherit-product-if-exists, device/asus/I005D/fox_I005D.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, $(DEVICE_PATH)/device-$(PRODUCT_DEVICE).mk)
+$(call inherit-product, device/asus/I005D/device-I005D.mk)

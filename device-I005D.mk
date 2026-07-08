@@ -21,4 +21,4 @@
 #
 
 # Inherit from device-common
-$(call inherit-product, $(DEVICE_PATH)/device-common.mk)
+$(call inherit-product, device/asus/I005D/device-common.mk)

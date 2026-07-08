@@ -57,4 +57,4 @@ PRODUCT_MANUFACTURER := asus
 DEVICE_PATH := device/$(PRODUCT_BRAND)/$(COMMON_FOLDER)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, $(DEVICE_PATH)/device-$(PRODUCT_DEVICE).mk)
+$(call inherit-product, device/asus/I005D/device-I005DS.mk)

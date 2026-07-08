@@ -22,8 +22,15 @@
 
 # Prebuit files for recovery ramdisk
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/prebuilt/recovery,$(TARGET_COPY_OUT_RECOVERY)/root) \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/$(PRODUCT_RELEASE_NAME)/device-prebuilt/recovery,$(TARGET_COPY_OUT_RECOVERY)/root)
+    $(call find-copy-subdir-files,*,device/asus/I005D/prebuilt/recovery,$(TARGET_COPY_OUT_RECOVERY)/root)
+
+ifeq ($(PRODUCT_RELEASE_NAME),I005DS)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/asus/I005D/I005DS/device-prebuilt/recovery,$(TARGET_COPY_OUT_RECOVERY)/root)
+else
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/asus/I005D/I005D/device-prebuilt/recovery,$(TARGET_COPY_OUT_RECOVERY)/root)
+endif
 
 # Inherit from OEM SoC-common
-$(call inherit-product, $(COMMON_PATH)/common.mk)
+$(call inherit-product, device/asus/sm8350-common/common.mk)
