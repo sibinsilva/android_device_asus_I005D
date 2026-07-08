@@ -32,26 +32,26 @@ PRODUCT_PLATFORM := lahaina
 #
 #
 # Release name (automatically taken from this file's suffix)
-PRODUCT_RELEASE_NAME := $(lastword $(subst /, ,$(lastword $(subst _, ,$(firstword $(subst ., ,$(MAKEFILE_LIST)))))))
+PRODUCT_RELEASE_NAME := I005DS
 
 # Custom vendor used in build tree (automatically taken from this file's prefix)
-CUSTOM_VENDOR := $(lastword $(subst /, ,$(firstword $(subst _, ,$(firstword $(MAKEFILE_LIST))))))
+CUSTOM_VENDOR := twrp
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/$(CUSTOM_VENDOR)/config/common.mk)
 
 # OEM Info (automatically taken from device tree path)
-BOARD_VENDOR := $(or $(word 2,$(subst /, ,$(firstword $(MAKEFILE_LIST)))),$(value 2))
+BOARD_VENDOR := asus
 
 # Common path for device trees
 COMMON_PATH := device/$(BOARD_VENDOR)/$(COMMON_SOC)-common
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
-PRODUCT_NAME := $(CUSTOM_VENDOR)_$(PRODUCT_DEVICE)
-PRODUCT_BRAND := $(BOARD_VENDOR)
-PRODUCT_MODEL := $(shell echo $(PRODUCT_BRAND) | tr  '[:lower:]' '[:upper:]')_$(COMMON_FOLDER)
-PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
+PRODUCT_DEVICE := I005DS
+PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
+PRODUCT_BRAND := asus
+PRODUCT_MODEL := ASUS_$(COMMON_FOLDER)
+PRODUCT_MANUFACTURER := asus
 
 # Default device path for tree
 DEVICE_PATH := device/$(PRODUCT_BRAND)/$(COMMON_FOLDER)
