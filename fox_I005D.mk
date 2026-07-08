@@ -19,6 +19,11 @@ FOX_VIRTUAL_AB_DEVICE := 1
 # -------------------------
 FOX_BUILD_TYPE := Unofficial
 FOX_MAINTAINER := YourName
+ifeq ($(PRODUCT_DEVICE),I005DS)
+    OF_TARGET_DEVICE_ALT := I005DS_1 ASUS_I005DS_1 ASUS_I005DS I005DA_1
+else
+    OF_TARGET_DEVICE_ALT := ASUS_I005D I005DA I005DB I005DC ASUS_I005DA ASUS_I005DB ASUS_I005DC
+endif
 
 # -------------------------
 # Dynamic partitions

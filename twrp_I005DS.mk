@@ -56,5 +56,8 @@ PRODUCT_MANUFACTURER := asus
 # Default device path for tree
 DEVICE_PATH := device/$(PRODUCT_BRAND)/$(COMMON_FOLDER)
 
+# Inherit OrangeFox-specific variables (VAB, dynamic partitions, display, etc.)
+$(call inherit-product-if-exists, device/asus/I005D/fox_I005D.mk)
+
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/asus/I005D/device-I005DS.mk)
