@@ -26,5 +26,15 @@
 # Inherit from OEM SoC-common
 -include $(COMMON_PATH)/BoardConfigCommon.mk
 
+# The real boot_a/boot_b partition size (confirmed via live `blockdev --getsize64`
+# on the actual device: exactly 100663296) is what BOARD_BOOTIMAGE_PARTITION_SIZE
+# in the sm8350-common tree already uses - but OrangeFox's own compiled
+# flashing code rejects a boot.img that's *exactly* equal to the partition
+# size ("size of image is larger than target device"), confirmed via a real
+# on-device install attempt with an image that matched the partition size
+# byte-for-byte. Trim 4KB of margin so the built image comes out marginally
+# smaller and clears that check, without changing the real GPT partition size.
+BOARD_BOOTIMAGE_PARTITION_SIZE := 100659200
+
 # TWRP specific build flags
 TW_FRAMERATE := 144
